@@ -1,13 +1,18 @@
 var express = require('express')
 var bodyParser = require('body-parser')
 var router = express.Router()
+var path = require('path')
 
 router.get('/', function(req, res) {
-	res.send('hi this is the home page')
+	res.sendFile(path.join(__dirname, '../public/home.html'))
 })
 
 router.get('/survey', function(req, res) {
-	res.send('hi this is the survey page')
+	res.sendFile(path.join(__dirname, '../public/survey.html'))
+})
+
+router.get('/home', function(req, res) {
+	res.redirect('/')
 })
 
 module.exports = router
