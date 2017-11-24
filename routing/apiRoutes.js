@@ -1,17 +1,17 @@
 var express = require('express')
 var bodyParser = require('body-parser')
-var api = express.Router()
-var friends = require('../app/data/friends')
+var router = express.Router()
 var path = require('path')
+var data = require('../app/data/friends')
 
-api.get('/api/friends', function(req, res) {
-	console.log('hi')
-
-	return res.json({ name: 'hi' })
+router.get('/api/friends', function(req, res) {
+	console.log('hi get')
+	res.json({ data: data })
 })
 
-// apiRouter.post('/api/friends', function(req, res) {
-// 	res.send('hi this handles compatibility logic and receives info')
-// })
+router.post('/api/friends', function(req, res) {
+	console.log('hi post')
+	res.send('hi this handles compatibility logic and receives info')
+})
 
-module.exports = api
+module.exports = router

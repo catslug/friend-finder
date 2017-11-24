@@ -15,6 +15,11 @@ $(document).ready(function() {
 		}
 
 		console.log(newPlayerStats)
+
+		$.post('/api/friends', newPlayerStats)
+			.done(function(data) {
+				console.log(data)
+			})
 	})
 })
 
