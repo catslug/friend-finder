@@ -16,7 +16,7 @@ router.get('/home', function(req, res) {
 	res.redirect('/')
 })
 
-// this needs to be in the apiRoutes file ?? ?? ??? ?? ugh
+//-----------------------this needs to be in the apiRoutes file ?? ?? ??? ?? ugh --------------------//
 router.get('/api/friends', function(req, res) {
 	res.json({ data: data })
 })
@@ -29,36 +29,27 @@ router.post('/api/friends', function(req, res) {
 })
 
 const findFriend = (obj) => {
-	var currentUserAnswers = obj.answers
-	var searchedAllUsers = false
-	var mostCompatibleUser
-	var bestCompatibleVal = 0
+	var optimalFriend = ''
+	var friendVal
 
-	do {
-		for (i = 0; i < data.length; i++) {
-			var prevUser = data[i]
-			var prevUserAnswers = data[i].answers
-			var diffsArr = []
+	for (var i = 0; i < data.length; i++) {
+		var baseVal = 0
 
-			for (i = 0; i < obj.currentUserAnswers.length; i++) {
-				var diff = Math.abs(+prevUserAnswers[i] - +currentUserAnswers[i])
-				diffsArr.push(diff)
-			}
-
-			for (i = 0; i < diffsArr.length; i++) {
-				var total = 0
-				var totalPlus = +total + +diffsArr[i]
-				if (total < bestCompatibleVal) {
-					bestCompatibleVal = total
-					mostCompatibleUser = prevUser.name
-				} else {
-					bestCompatibleVal = bestCompatibleVal
-				}
-			}
+		for (var j = 0; j < data[i].answers.length; j++) {
+			var possNewVal = Math.abs(+obj.answers[j] - +data[i].answers[j])
+			baseVal += possNewVal
 		}
-		searchedAllUsers = true
-	} while (!searchedAllUsers)
 
+		if (baseVal <= friendVal || friendVal === undefined) {
+			friendVal = baseVal
+			optimalFriend = data[i].name
+			console.log('friendVal', friendVal, 'optimalFriend', optimalFriend) 
+		}
+	}
+
+	console.log('optimalFriend', optimalFriend)
+	return optimalFriend // fix the fact that it's returning the same user name, because it pushes the new user to array
 }
+//-----------------------------------------------------------------------------------------------------//
 
 module.exports = router
