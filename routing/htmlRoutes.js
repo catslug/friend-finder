@@ -35,7 +35,7 @@ const findFriend = (obj) => {
 	for (var i = 0; i < data.length; i++) {
 		var baseVal = 0
 
-		for (var j = 0; j < data[i].answers.length; j++) {
+		for (var j = 0; j < data[i].answers.length - 1; j++) {
 			var possNewVal = Math.abs(+obj.answers[j] - +data[i].answers[j])
 			baseVal += possNewVal
 		}
