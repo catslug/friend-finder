@@ -32,10 +32,10 @@ const findFriend = (obj) => {
 	var optimalFriend = ''
 	var friendVal
 
-	for (var i = 0; i < data.length; i++) {
+	for (var i = 0; i < data.length - 1; i++) {
 		var baseVal = 0
 
-		for (var j = 0; j < data[i].answers.length - 1; j++) {
+		for (var j = 0; j < data[i].answers.length; j++) {
 			var possNewVal = Math.abs(+obj.answers[j] - +data[i].answers[j])
 			baseVal += possNewVal
 		}
@@ -47,9 +47,22 @@ const findFriend = (obj) => {
 		}
 	}
 
-	console.log('optimalFriend', optimalFriend)
-	return optimalFriend // fix the fact that it's returning the same user name, because it pushes the new user to array
+	console.log('final optimalFriend', optimalFriend)
+	return optimalFriend
 }
 //-----------------------------------------------------------------------------------------------------//
+
+//----------------------------------validation api-------------------------------------------------//
+var validUrl = require('valid-url')
+
+router.post('/api/validate', function(req, res) {
+	var url = req.body.url
+
+	if (validUrl.isWebUri(url)) {
+		res.send(true) 
+	} else {
+		res.send(false)
+	}
+})
 
 module.exports = router

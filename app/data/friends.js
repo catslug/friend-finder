@@ -35,8 +35,25 @@ const data = [
 			'5',
 			'3'
 		]
+	}, {
+		name: 'Toad',
+		photo: 'http://i0.kym-cdn.com/photos/images/original/001/275/311/77a.jpg',
+		answers: [
+			'4',
+			'5',
+			'3',
+			'4',
+			'4',
+			'1',
+			'4',
+			'1',
+			'4',
+			'5',
+			'1',
+			'4',
+			'3'
+		]
 	}
-
 ]
 
 module.exports = data
