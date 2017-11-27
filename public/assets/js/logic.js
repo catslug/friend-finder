@@ -45,14 +45,17 @@ const postPlayer = (name, url) => {
 	}
 
 	var newPlayerStats = {
-		name: $('#playerName').val(),
-		photo: $('#playerPhoto').val(),
+		name: name,
+		photo: url,
 		answers: playerAnswers
 	}
 
 	$.post('/api/friends', newPlayerStats)
 		.done(function(data) {
-			console.log(data)
+			console.log('done function inside postPlayer', data)
+			$('#perfect-match').text(data.name)
+			$('#perfect-photo').attr('src', data.photo)
+			$('.modal-response').css('display', 'block')
 		})
 }
 

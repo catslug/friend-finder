@@ -146,8 +146,8 @@ div.modals {
 p.modal-contents, img.perfect-photo {
 	text-align: center;
 	font-size: 2.5em;
-	padding-top: 3em;
-	padding-bottom: 3em;
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
 
 span.modal-close {
@@ -169,4 +169,10 @@ span.modal-close:focus {
 
 span.perfect-style {
 	color: #ff66ec;
+	font-weight: 700;
+}
+
+img.modal-img {
+	width: 20%;
+	margin: 0 40% 3.5em 40%;
 }

@@ -24,13 +24,13 @@ router.get('/api/friends', function(req, res) {
 router.post('/api/friends', function(req, res) {
 	var newSurvey = req.body
 	data.push(newSurvey)
-	findFriend(newSurvey)
-	res.json(newSurvey)
+	res.send(findFriend(newSurvey))
 })
 
 const findFriend = (obj) => {
 	var optimalFriend = ''
 	var friendVal
+	var index
 
 	for (var i = 0; i < data.length - 1; i++) {
 		var baseVal = 0
@@ -43,12 +43,16 @@ const findFriend = (obj) => {
 		if (baseVal <= friendVal || friendVal === undefined) {
 			friendVal = baseVal
 			optimalFriend = data[i].name
+			index = i
 			console.log('friendVal', friendVal, 'optimalFriend', optimalFriend) 
 		}
 	}
 
 	console.log('final optimalFriend', optimalFriend)
-	return optimalFriend
+	return { 
+		name: optimalFriend,
+		photo: data[index].photo
+	}
 }
 //-----------------------------------------------------------------------------------------------------//
 

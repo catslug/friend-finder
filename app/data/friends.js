@@ -53,6 +53,24 @@ const data = [
 			'4',
 			'3'
 		]
+	}, {
+		name: 'Steve Harrington',
+		photo: 'https://media.dayoftheshirt.com/images/shirts/82aMu/neatoshop_steve-harrington_1510078294.full.png',
+		answers: [
+			'2',
+			'4',
+			'1',
+			'4',
+			'2',
+			'3',
+			'3',
+			'4',
+			'1',
+			'2',
+			'1',
+			'3',
+			'1'
+		]
 	}
 ]
 
