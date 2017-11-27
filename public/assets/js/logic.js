@@ -3,64 +3,57 @@ var playerAnswers = []
 $(document).ready(function() {
 	$('#submit').on('click', function() {
 		event.preventDefault()
+		const url = $('#playerPhoto').val()
+		const name = $('#playerName').val()
 
-		// validating input
-		if (validateName($('#playerName').val()) && validateUrl($('#playerPhoto').val())) {
-			console.log('posting successful', validateUrl($('#playerPhoto').val()))
-		
-			for (var i = 1; i < 14; i++) {
-				saveToArray($('input[name="feelingsQ' + i + '"]:checked').val())
-			}
-
-			var newPlayerStats = {
-				name: $('#playerName').val(),
-				photo: $('#playerPhoto').val(),
-				answers: playerAnswers
-			}
-
-			console.log(newPlayerStats)
-
-			$.post('/api/friends', newPlayerStats)
-				.done(function(data) {
-					console.log(data)
-				})
-		}
+		validateName(name, url)
 	})	
 
 	$('.modals').on('click', closeModal)
 	$('.close').on('click', closeModal)
-})
+}) 
 
 const saveToArray = (val) => {
 	playerAnswers.push(val)
 }
 
-const validateName = (val) => {
-	if (val === '') {
-		console.log('Please type in a name.')
-
+const validateName = (name, url) => {
+	console.log('url inside validateName', url)
+	if (name === '') {
 		$('.modal-name-warning').css('display', 'block')
-
 		return false
 	} else {
+		validateUrl(name, url)
 		return true
 	}
 }
 
-const validateUrl = (val) => {	
-	const valid = (val) => ($.post('/api/validate', { url: val })
-		.done(function (data) {
+const validateUrl = (name, url) => ($.post('/api/validate', { url: url })
+		.done(function(data) {
 			if (!data) {
-				console.log('Please enter a valid url')
-
 				$('.modal-url-warning').css('display', 'block')
-
 				return false
 			} else if (data) {
+				postPlayer(name, url)
 				return true
 			} 
 		}))
-	return valid(val)
+
+const postPlayer = (name, url) => {
+	for (var i = 1; i < 14; i++) {
+		saveToArray($('input[name="feelingsQ' + i + '"]:checked').val())
+	}
+
+	var newPlayerStats = {
+		name: $('#playerName').val(),
+		photo: $('#playerPhoto').val(),
+		answers: playerAnswers
+	}
+
+	$.post('/api/friends', newPlayerStats)
+		.done(function(data) {
+			console.log(data)
+		})
 }
 
 const closeModal = () => {

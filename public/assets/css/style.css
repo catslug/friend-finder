@@ -38,6 +38,7 @@ input[type='radio'].radio-class:checked {
 	background-color: #ff66ec;
 	outline: 10px solid #ff66ec;
 	border-radius: 100%;
+	outline-style: dotted;
 }
 input[type='radio'].radio-class:checked:focus {
 	background-color: #ff66ec;
