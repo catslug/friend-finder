@@ -5,7 +5,7 @@ var path = require('path')
 var apiRoutes = require('./routing/apiRoutes')
 var htmlRoutes = require ('./routing/htmlRoutes')
 var validateRoutes = require('./routing/validateRoutes')
-var PORT = 3000; // process.env.PORT || 3000
+var PORT = process.env.PORT || 3000
 
 app.use(bodyParser.urlencoded({ extended: true })) // might need to set this to true
 app.use(bodyParser.json())
