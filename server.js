@@ -7,7 +7,7 @@ var htmlRoutes = require ('./routing/htmlRoutes')
 var validateRoutes = require('./routing/validateRoutes')
 var PORT = process.env.PORT || 3000
 
-app.use(bodyParser.urlencoded({ extended: true })) // might need to set this to true
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.use('/api/friends', apiRoutes) // works in htmlRoutes but not apiRoutes ???? 

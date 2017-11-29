@@ -10,14 +10,19 @@ body {
 
 /* -----------inputs-----------------*/
 input {
-	padding: 10px 15px;
+	padding: 10px 0;
 	margin: 0 15px 15px 15px;
-	border: 1px solid #333;
+	border: 0;
+	border-bottom: 2px solid #ff66ec;
+	font-size: 1.2em;
+	color: #ff66ec;
+	font-weight: 700;
+	letter-spacing: 2px;
 }
 
 input:hover {
-	background-color: #f7e6fa;
-	transition: all 1s;
+/*	background-color: #f7e6fa;
+*/	transition: all 1s;
 }
 
 input:active, input:focus {
@@ -93,10 +98,6 @@ div.survey-class {
 	font-size: 1.1em;
 }
 
-hr {
-	background-color: #ff66ec;
-}
-
 /*--------------buttons/links--------------------------*/
 a.navi-link {
 	color: black;
@@ -104,7 +105,7 @@ a.navi-link {
 
 button.navi-button {
 	background-color: #ff66ec;
-	width: 20%;
+	width: 300px;
 	border-radius: 0;
 	margin-left: 148px;
 	margin-top: 65px;
@@ -116,7 +117,7 @@ button.submit-button {
 	margin-left: 15px;
 	margin-bottom: 100px;
 	border-radius: 0;
-	width: 20%;
+	width: 200px;
 }
 
 button.submit-button:hover, 
@@ -133,13 +134,16 @@ button.navi-button:focus {
 /*--------------------modals---------------------------*/
 div.modals {
 	display: none;
-	background-color: white;
+	background-color: #ff66ec;
+	color: white;
+	font-weight: 700;
 	width: 80%;
 	position: fixed;
 	left: 0;
 	top: 0;
 	margin: 10%;
 	border: 10px solid #ff66ec;
+	border-radius: 6px;
 	box-shadow: 0 0 11px -2px #e0d7e0;
 }
 
@@ -168,7 +172,6 @@ span.modal-close:focus {
 }
 
 span.perfect-style {
-	color: #ff66ec;
 	font-weight: 700;
 }
 
@@ -198,4 +201,11 @@ div.variable-width {
 .slick-track,
 .slick-slide img {
    height: 300px;   
+}
+
+.q-style {
+	color: #ff77ec;
+	font-weight: 700;
+	font-size: 1.75em;
+	margin-right: 0.5em;
 }

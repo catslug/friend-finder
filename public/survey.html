@@ -6,7 +6,7 @@
 	<title>TableTop</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada:400,700|Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada:400,700|Open+Sans:400,700" rel="stylesheet">
 	<link rel="stylesheet" href="/assets/css/style.css">
 	<script src='/assets/js/logic.js' tyep='text/javascript'></script>
 </head>
@@ -18,6 +18,9 @@
 		</div>
 		<div class='modals modal-warning modal-url-warning'>
 			<p class='modal-contents'>Please enter a valid url.<span class='close modal-close glyphicon glyphicon-remove'></span></p>
+		</div>
+		<div class='modals modal-warning modal-radio-warning'>
+			<p class='modal-contents'>Please enter a response for question <span id='radio-q-id'></span>.<span class='close modal-close glyphicon glyphicon-remove'></span></p>
 		</div>
 		<div class='modals modal-response'>
 			<p class='modal-contents'>Your perfect gaming partner is <span class='perfect-style' id='perfect-match'></span>!<span class='close modal-close glyphicon glyphicon-remove'></span></p>
@@ -33,121 +36,121 @@
 			<p class='panel-heading'>Link to a photo of a likeness of you: (required)</p>
 				<input class='input-text-class' type='url' id='playerPhoto' placeholder='link to photo'>
 			<hr>
-			<p class='panel-heading'>Q1: I enjoy games that require a lot of planning, forethought, and strategy.</p>
+			<p class='panel-heading'><span class='q-style'>Q1:</span> I enjoy games that require a lot of planning, forethought, and strategy.</p>
 				<form class='form-class' action=''>
-					<input class='radio-class' type='radio' name='feelingsQ1' value=5> Strongly agree
-					<input class='radio-class' type='radio' name='feelingsQ1' value=4> Agree
-					<input class='radio-class' type='radio' name='feelingsQ1' value=3> Neutral
-					<input class='radio-class' type='radio' name='feelingsQ1' value=2> Disagree
-					<input class='radio-class' type='radio' name='feelingsQ1' value=1> Strongly disagree
+					<input class='radio-class' type='radio' name='feelingsQ1' value=5 required> Strongly agree
+					<input class='radio-class' type='radio' name='feelingsQ1' value=4 required> Agree
+					<input class='radio-class' type='radio' name='feelingsQ1' value=3 required> Neutral
+					<input class='radio-class' type='radio' name='feelingsQ1' value=2 required> Disagree
+					<input class='radio-class' type='radio' name='feelingsQ1' value=1 required> Strongly disagree
 				</form>
 			<hr>
-			<p class='panel-heading'>Q2: Games that require more than two players are awesome.</p>
+			<p class='panel-heading'><span class='q-style'>Q2:</span>     Games that require more than two players are awesome.</p>
 				<form class='form-class' action=''>
-					<input class='radio-class' type='radio' name='feelingsQ2' value=5> Strongly agree
-					<input class='radio-class' type='radio' name='feelingsQ2' value=4> Agree
-					<input class='radio-class' type='radio' name='feelingsQ2' value=3> Neutral
-					<input class='radio-class' type='radio' name='feelingsQ2' value=2> Disagree
-					<input class='radio-class' type='radio' name='feelingsQ2' value=1> Strongly disagree
+					<input class='radio-class' type='radio' name='feelingsQ2' value=5 required> Strongly agree
+					<input class='radio-class' type='radio' name='feelingsQ2' value=4 required> Agree
+					<input class='radio-class' type='radio' name='feelingsQ2' value=3 required> Neutral
+					<input class='radio-class' type='radio' name='feelingsQ2' value=2 required> Disagree
+					<input class='radio-class' type='radio' name='feelingsQ2' value=1 required> Strongly disagree
 				</form>
 			<hr>
-			<p class='panel-heading'>Q3: Relying exclusively on the element of chance in my games makes me happy.</p>
+			<p class='panel-heading'><span class='q-style'>Q3:</span>     Relying exclusively on the element of chance in my games makes me happy.</p>
 				<form class='form-class' action=''>
-					<input class='radio-class' type='radio' name='feelingsQ3' value=5> Strongly agree
-					<input class='radio-class' type='radio' name='feelingsQ3' value=4> Agree
-					<input class='radio-class' type='radio' name='feelingsQ3' value=3> Neutral
-					<input class='radio-class' type='radio' name='feelingsQ3' value=2> Disagree
-					<input class='radio-class' type='radio' name='feelingsQ3' value=1> Strongly disagree
+					<input class='radio-class' type='radio' name='feelingsQ3' value=5 required> Strongly agree
+					<input class='radio-class' type='radio' name='feelingsQ3' value=4 required> Agree
+					<input class='radio-class' type='radio' name='feelingsQ3' value=3 required> Neutral
+					<input class='radio-class' type='radio' name='feelingsQ3' value=2 required> Disagree
+					<input class='radio-class' type='radio' name='feelingsQ3' value=1 required> Strongly disagree
 				</form>
 			<hr>
-			<p class='panel-heading'>Q4: I love games that have maps where I can visualize progression, like floorplans for houses or geographical regions. </p>
+			<p class='panel-heading'><span class='q-style'>Q4:</span>     I love games that have maps where I can visualize progression, like floorplans for houses or geographical regions. </p>
 				<form class='form-class' action=''>
-					<input class='radio-class' type='radio' name='feelingsQ4' value=5> Strongly agree
-					<input class='radio-class' type='radio' name='feelingsQ4' value=4> Agree
-					<input class='radio-class' type='radio' name='feelingsQ4' value=3> Neutral
-					<input class='radio-class' type='radio' name='feelingsQ4' value=2> Disagree
-					<input class='radio-class' type='radio' name='feelingsQ4' value=1> Strongly disagree
+					<input class='radio-class' type='radio' name='feelingsQ4' value=5 required> Strongly agree
+					<input class='radio-class' type='radio' name='feelingsQ4' value=4 required> Agree
+					<input class='radio-class' type='radio' name='feelingsQ4' value=3 required> Neutral
+					<input class='radio-class' type='radio' name='feelingsQ4' value=2 required> Disagree
+					<input class='radio-class' type='radio' name='feelingsQ4' value=1 required> Strongly disagree
 				</form>		
 			<hr>
-			<p class='panel-heading'>Q5: Games that allow me to visualize a story, or to participate in the telling of a story, are awesome.
+			<p class='panel-heading'><span class='q-style'>Q5:</span>     Games that allow me to visualize a story, or to participate in the telling of a story, are awesome.
 				<form class='form-class' action=''>
-					<input class='radio-class' type='radio' name='feelingsQ5' value=5> Strongly agree
-					<input class='radio-class' type='radio' name='feelingsQ5' value=4> Agree
-					<input class='radio-class' type='radio' name='feelingsQ5' value=3> Neutral
-					<input class='radio-class' type='radio' name='feelingsQ5' value=2> Disagree
-					<input class='radio-class' type='radio' name='feelingsQ5' value=1> Strongly disagree
+					<input class='radio-class' type='radio' name='feelingsQ5' value=5 required> Strongly agree
+					<input class='radio-class' type='radio' name='feelingsQ5' value=4 required> Agree
+					<input class='radio-class' type='radio' name='feelingsQ5' value=3 required> Neutral
+					<input class='radio-class' type='radio' name='feelingsQ5' value=2 required> Disagree
+					<input class='radio-class' type='radio' name='feelingsQ5' value=1 required> Strongly disagree
 				</form>		
 			<hr>
-			<p class='panel-heading'>Q6: I hate games that regularly last more than two hours. </p>
+			<p class='panel-heading'><span class='q-style'>Q6:</span> I hate games that regularly last more than two hours. </p>
 				<form class='form-class' action=''>
-					<input class='radio-class' type='radio' name='feelingsQ6' value=5> Strongly agree
-					<input class='radio-class' type='radio' name='feelingsQ6' value=4> Agree
-					<input class='radio-class' type='radio' name='feelingsQ6' value=3> Neutral
-					<input class='radio-class' type='radio' name='feelingsQ6' value=2> Disagree
-					<input class='radio-class' type='radio' name='feelingsQ6' value=1> Strongly disagree
+					<input class='radio-class' type='radio' name='feelingsQ6' value=5 required> Strongly agree
+					<input class='radio-class' type='radio' name='feelingsQ6' value=4 required> Agree
+					<input class='radio-class' type='radio' name='feelingsQ6' value=3 required> Neutral
+					<input class='radio-class' type='radio' name='feelingsQ6' value=2 required> Disagree
+					<input class='radio-class' type='radio' name='feelingsQ6' value=1 required> Strongly disagree
 				</form>		
 			<hr>
-			<p class='panel-heading'>Q7: Games that have no board, but instead rely on a Game Master, dice, and game sheets let me utilize my creativity and I love interacting with the other players to build a narrative.</p>
+			<p class='panel-heading'><span class='q-style'>Q7:</span> Games that have no board, but instead rely on a Game Master, dice, and game sheets let me utilize my creativity and I love interacting with the other players to build a narrative.</p>
 				<form class='form-class' action=''>
-					<input class='radio-class' type='radio' name='feelingsQ7' value=5> Strongly agree
-					<input class='radio-class' type='radio' name='feelingsQ7' value=4> Agree
-					<input class='radio-class' type='radio' name='feelingsQ7' value=3> Neutral
-					<input class='radio-class' type='radio' name='feelingsQ7' value=2> Disagree
-					<input class='radio-class' type='radio' name='feelingsQ7' value=1> Strongly disagree
+					<input class='radio-class' type='radio' name='feelingsQ7' value=5 required> Strongly agree
+					<input class='radio-class' type='radio' name='feelingsQ7' value=4 required> Agree
+					<input class='radio-class' type='radio' name='feelingsQ7' value=3 required> Neutral
+					<input class='radio-class' type='radio' name='feelingsQ7' value=2 required> Disagree
+					<input class='radio-class' type='radio' name='feelingsQ7' value=1 required> Strongly disagree
 				</form>		
 			<hr>
-			<p class='panel-heading'>Q8: Playing games that have horror themes, like exploring a haunted house or running from a slasher, excite me.</p>
+			<p class='panel-heading'><span class='q-style'>Q8:</span> Playing games that have horror themes, like exploring a haunted house or running from a slasher, excite me.</p>
 				<form class='form-class' action=''>
-					<input class='radio-class' type='radio' name='feelingsQ8' value=5> Strongly agree
-					<input class='radio-class' type='radio' name='feelingsQ8' value=4> Agree
-					<input class='radio-class' type='radio' name='feelingsQ8' value=3> Neutral
-					<input class='radio-class' type='radio' name='feelingsQ8' value=2> Disagree
-					<input class='radio-class' type='radio' name='feelingsQ8' value=1> Strongly disagree
+					<input class='radio-class' type='radio' name='feelingsQ8' value=5 required> Strongly agree
+					<input class='radio-class' type='radio' name='feelingsQ8' value=4 required> Agree
+					<input class='radio-class' type='radio' name='feelingsQ8' value=3 required> Neutral
+					<input class='radio-class' type='radio' name='feelingsQ8' value=2 required> Disagree
+					<input class='radio-class' type='radio' name='feelingsQ8' value=1 required> Strongly disagree
 				</form>		
 			<hr>
-			<p class='panel-heading'>Q9: I prefer playing games that are always easy to learn and can be played with a basic deck of cards.</p>
+			<p class='panel-heading'><span class='q-style'>Q9:</span> I prefer playing games that are always easy to learn and can be played with a basic deck of cards.</p>
 				<form class='form-class' action=''>
-					<input class='radio-class' type='radio' name='feelingsQ9' value=5> Strongly agree
-					<input class='radio-class' type='radio' name='feelingsQ9' value=4> Agree
-					<input class='radio-class' type='radio' name='feelingsQ9' value=3> Neutral
-					<input class='radio-class' type='radio' name='feelingsQ9' value=2> Disagree
-					<input class='radio-class' type='radio' name='feelingsQ9' value=1> Strongly disagree
+					<input class='radio-class' type='radio' name='feelingsQ9' value=5 required> Strongly agree
+					<input class='radio-class' type='radio' name='feelingsQ9' value=4 required> Agree
+					<input class='radio-class' type='radio' name='feelingsQ9' value=3 required> Neutral
+					<input class='radio-class' type='radio' name='feelingsQ9' value=2 required> Disagree
+					<input class='radio-class' type='radio' name='feelingsQ9' value=1 required> Strongly disagree
 				</form>		
 			<hr>
-			<p class='panel-heading'>Q10: Playing games that use four-, eight-, twelve-, twenty-, etc- sided dice is the best thing ever. </p>
+			<p class='panel-heading'><span class='q-style'>Q10:</span> Playing games that use four-, eight-, twelve-, twenty-, etc- sided dice is the best thing ever. </p>
 				<form class='form-class' action=''>
-					<input class='radio-class' type='radio' name='feelingsQ10' value=5> Strongly agree
-					<input class='radio-class' type='radio' name='feelingsQ10' value=4> Agree
-					<input class='radio-class' type='radio' name='feelingsQ10' value=3> Neutral
-					<input class='radio-class' type='radio' name='feelingsQ10' value=2> Disagree
-					<input class='radio-class' type='radio' name='feelingsQ10' value=1> Strongly disagree
+					<input class='radio-class' type='radio' name='feelingsQ10' value=5 required> Strongly agree
+					<input class='radio-class' type='radio' name='feelingsQ10' value=4 required> Agree
+					<input class='radio-class' type='radio' name='feelingsQ10' value=3 required> Neutral
+					<input class='radio-class' type='radio' name='feelingsQ10' value=2 required> Disagree
+					<input class='radio-class' type='radio' name='feelingsQ10' value=1 required> Strongly disagree
 				</form>
 			<hr>
-			<p class='panel-heading'>Q11: I love playing games that require me to bluff in order to win an advantage.</p>
+			<p class='panel-heading'><span class='q-style'>Q11:</span> I love playing games that require me to bluff in order to win an advantage.</p>
 				<form class='form-class' action=''>
-					<input class='radio-class' type='radio' name='feelingsQ11' value=5> Strongly agree
-					<input class='radio-class' type='radio' name='feelingsQ11' value=4> Agree
-					<input class='radio-class' type='radio' name='feelingsQ11' value=3> Neutral
-					<input class='radio-class' type='radio' name='feelingsQ11' value=2> Disagree
-					<input class='radio-class' type='radio' name='feelingsQ11' value=1> Strongly disagree
+					<input class='radio-class' type='radio' name='feelingsQ11' value=5 required> Strongly agree
+					<input class='radio-class' type='radio' name='feelingsQ11' value=4 required> Agree
+					<input class='radio-class' type='radio' name='feelingsQ11' value=3 required> Neutral
+					<input class='radio-class' type='radio' name='feelingsQ11' value=2 required> Disagree
+					<input class='radio-class' type='radio' name='feelingsQ11' value=1 required> Strongly disagree
 				</form>
 			<hr>
-			<p class='panel-heading'>Q12: Getting into the mindset of a specific player and playing to that character's goals and motivations makes me happy.</p>
+			<p class='panel-heading'><span class='q-style'>Q12:</span> Getting into the mindset of a specific player and playing to that character's goals and motivations makes me happy.</p>
 				<form class='form-class' action=''>
-					<input class='radio-class' type='radio' name='feelingsQ12' value=5> Strongly agree
-					<input class='radio-class' type='radio' name='feelingsQ12' value=4> Agree
-					<input class='radio-class' type='radio' name='feelingsQ12' value=3> Neutral
-					<input class='radio-class' type='radio' name='feelingsQ12' value=2> Disagree
-					<input class='radio-class' type='radio' name='feelingsQ12' value=1> Strongly disagree
+					<input class='radio-class' type='radio' name='feelingsQ12' value=5 required> Strongly agree
+					<input class='radio-class' type='radio' name='feelingsQ12' value=4 required> Agree
+					<input class='radio-class' type='radio' name='feelingsQ12' value=3 required> Neutral
+					<input class='radio-class' type='radio' name='feelingsQ12' value=2 required> Disagree
+					<input class='radio-class' type='radio' name='feelingsQ12' value=1 required> Strongly disagree
 				</form>
 			<hr>
-			<p class='panel-heading'>Q13: Games that require a lot of set-up frustrate me.</p>
+			<p class='panel-heading'><span class='q-style'>Q13:</span> Games that require a lot of set-up frustrate me.</p>
 				<form class='form-class' action=''>
-					<input class='radio-class' type='radio' name='feelingsQ13' value=5> Strongly agree
-					<input class='radio-class' type='radio' name='feelingsQ13' value=4> Agree
-					<input class='radio-class' type='radio' name='feelingsQ13' value=3> Neutral
-					<input class='radio-class' type='radio' name='feelingsQ13' value=2> Disagree
-					<input class='radio-class' type='radio' name='feelingsQ13' value=1> Strongly disagree
+					<input class='radio-class' type='radio' name='feelingsQ13' value=5 required> Strongly agree
+					<input class='radio-class' type='radio' name='feelingsQ13' value=4 required> Agree
+					<input class='radio-class' type='radio' name='feelingsQ13' value=3 required> Neutral
+					<input class='radio-class' type='radio' name='feelingsQ13' value=2 required> Disagree
+					<input class='radio-class' type='radio' name='feelingsQ13' value=1 required> Strongly disagree
 				</form>			
 			<button type='submit' id='submit' class='btn btn-lg submit-button'>Submit</button> 
 		</div>

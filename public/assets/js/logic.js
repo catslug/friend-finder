@@ -3,6 +3,7 @@ var playerAnswers = []
 $(document).ready(function() {
 	$('#submit').on('click', function() {
 		event.preventDefault()
+
 		const url = $('#playerPhoto').val()
 		const name = $('#playerName').val()
 
@@ -49,10 +50,24 @@ const validateUrl = (name, url) => ($.post('/api/validate', { url: url })
 				$('.modal-url-warning').css('display', 'block')
 				return false
 			} else if (data) {
-				postPlayer(name, url)
+				validateRadiosChecked(name, url)
 				return true
 			} 
 		}))
+
+const validateRadiosChecked = (name, url) => {
+	for (var i = 1; i < 14; i++) {
+		console.log('checking ', i)
+		console.log($('input[name="feelingsQ' + i + '"]:checked').length)
+		if ($('input[name="feelingsQ' + i + '"]:checked').length < 1) {
+			$('#radio-q-id').text(i)
+			$('.modal-radio-warning').css('display', 'block')
+			return false
+		}
+	}
+
+	postPlayer(name, url)
+}
 
 const postPlayer = (name, url) => {
 	for (var i = 1; i < 14; i++) {
@@ -67,7 +82,6 @@ const postPlayer = (name, url) => {
 
 	$.post('/api/friends', newPlayerStats)
 		.done(function(data) {
-			console.log('done function inside postPlayer', data)
 			$('#perfect-match').text(data.name)
 			$('#perfect-photo').attr('src', data.photo)
 			$('.modal-response').css('display', 'block')
@@ -78,4 +92,5 @@ const closeModal = () => {
 	$('.modal-url-warning').css('display', 'none')
 	$('.modal-name-warning').css('display', 'none')
 	$('.modal-response').css('display', 'none')
+	$('.modal-radio-warning').css('display', 'none')
 }
