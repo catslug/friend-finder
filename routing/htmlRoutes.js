@@ -4,6 +4,7 @@ var router = express.Router()
 var path = require('path')
 var data = require('../app/data/friends')
 
+//-----------------------HTML routes--------------------//
 router.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname, '../public/home.html'))
 })
@@ -16,7 +17,7 @@ router.get('/home', function(req, res) {
 	res.redirect('/')
 })
 
-//-----------------------this needs to be in the apiRoutes file ?? ?? ??? ?? ugh --------------------//
+//-----------------------API routes--------------------//
 router.get('/api/friends', function(req, res) {
 	res.json({ data: data })
 })
@@ -54,9 +55,8 @@ const findFriend = (obj) => {
 		photo: data[index].photo
 	}
 }
-//-----------------------------------------------------------------------------------------------------//
 
-//----------------------------------validation api-------------------------------------------------//
+//----------------------------------Validation Route-------------------------------------------------//
 var validUrl = require('valid-url')
 
 router.post('/api/validate', function(req, res) {

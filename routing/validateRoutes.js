@@ -2,17 +2,14 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var router = express.Router()
 var path = require('path')
-var validate = require('valid-url')
+var validUrl = require('valid-url')
 
 router.post('/api/validate', function(req, res) {
-	var url = req.body
-	console.log('in the validate routing page')
+	var url = req.body.url
 
-	if (validate.isURI(url)) {
-		console.log('valid url')
+	if (validUrl.isWebUri(url)) {
 		res.send(true) 
 	} else {
-		console.log('invalid url')
 		res.send(false)
 	}
 })
