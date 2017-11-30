@@ -4,8 +4,7 @@ var router = express.Router()
 var path = require('path')
 var validUrl = require('valid-url')
 
-router.post('/api/validate', function(req, res) {
-	console.log('in the validate page')
+router.post('/', function(req, res) {
 	var url = req.body.url
 
 	if (validUrl.isWebUri(url)) {

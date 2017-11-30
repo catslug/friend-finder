@@ -4,14 +4,11 @@ var router = express.Router()
 var path = require('path')
 var data = require('../app/data/friends')
 
-//-----------------------API routes--------------------//
-router.get('/api/friends', function(req, res) {
-	console.log('in the api page')
+router.get('/', function(req, res) {
 	res.json({ data: data })
 })
 
-router.post('/api/friends', function(req, res) {
-	console.log('in the api page')
+router.post('/', function(req, res) {
 	var newSurvey = req.body
 	data.push(newSurvey)
 	res.send(findFriend(newSurvey))
