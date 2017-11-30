@@ -5,6 +5,7 @@ var path = require('path')
 var validUrl = require('valid-url')
 
 router.post('/api/validate', function(req, res) {
+	console.log('in the validate page')
 	var url = req.body.url
 
 	if (validUrl.isWebUri(url)) {

@@ -6,10 +6,12 @@ var data = require('../app/data/friends')
 
 //-----------------------API routes--------------------//
 router.get('/api/friends', function(req, res) {
+	console.log('in the api page')
 	res.json({ data: data })
 })
 
 router.post('/api/friends', function(req, res) {
+	console.log('in the api page')
 	var newSurvey = req.body
 	data.push(newSurvey)
 	res.send(findFriend(newSurvey))

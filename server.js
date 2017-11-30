@@ -10,10 +10,10 @@ var PORT = process.env.PORT || 3000
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-app.use('/api/friends', apiRoutes) // works in htmlRoutes but not apiRoutes ???? 
+app.use('/api/friends', apiRoutes) 
 app.use('/', htmlRoutes)
 app.use('/survey', htmlRoutes)
-app.use('/api/validate', htmlRoutes)
+app.use('/api/validate', validateRoutes)
 
 app.use(express.static(path.join(__dirname, 'public')))
 

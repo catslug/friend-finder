@@ -19,10 +19,12 @@ router.get('/home', function(req, res) {
 
 //-----------------------API routes--------------------//
 router.get('/api/friends', function(req, res) {
+	console.log('inside the html page')
 	res.json({ data: data })
 })
 
 router.post('/api/friends', function(req, res) {
+	console.log('inside the html page')
 	var newSurvey = req.body
 	data.push(newSurvey)
 	res.send(findFriend(newSurvey))
@@ -45,7 +47,6 @@ const findFriend = (obj) => {
 			friendVal = baseVal
 			optimalFriend = data[i].name
 			index = i
-			console.log('friendVal', friendVal, 'optimalFriend', optimalFriend) 
 		}
 	}
 
@@ -60,6 +61,7 @@ const findFriend = (obj) => {
 var validUrl = require('valid-url')
 
 router.post('/api/validate', function(req, res) {
+	console.log('inside the html page')
 	var url = req.body.url
 
 	if (validUrl.isWebUri(url)) {

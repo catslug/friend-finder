@@ -57,8 +57,6 @@ const validateUrl = (name, url) => ($.post('/api/validate', { url: url })
 
 const validateRadiosChecked = (name, url) => {
 	for (var i = 1; i < 14; i++) {
-		console.log('checking ', i)
-		console.log($('input[name="feelingsQ' + i + '"]:checked').length)
 		if ($('input[name="feelingsQ' + i + '"]:checked').length < 1) {
 			$('#radio-q-id').text(i)
 			$('.modal-radio-warning').css('display', 'block')
